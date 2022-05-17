@@ -1,0 +1,13 @@
+---
+- name: a basic loop with playbook
+  hosts: all
+  tasks:
+    - name: print loop message
+      ansible.builtin.debug:
+        msg: "{{ item }} {{ my_idx }}"
+      loop:
+        - Loop
+        - Loop
+        - Loop
+      loop_control:
+        index_var: my_idx

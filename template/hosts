@@ -1,0 +1,2 @@
+[local]
+server1 ansible_ssh_host=127.0.0.1  ansible_ssh_port=8888 ansible_ssh_pass=docker

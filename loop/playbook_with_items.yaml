@@ -1,0 +1,11 @@
+---
+- name: a basic loop with playbook
+  hosts: all
+  tasks:
+    - name: print loop message
+      ansible.builtin.debug:
+        msg: "Loop {{ item }}"
+      with_items:
+        - 0
+        - 1
+        - 2
