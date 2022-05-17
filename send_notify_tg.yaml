@@ -4,10 +4,10 @@
   tasks:
     - name: Send notify to Telegram
       community.general.telegram:
-        token: "5335968936:AAFhxxMRJy-rucGKgSE80Xss7qPq2iOHWlc"
+        token: "9999999:XXXXXXXXXXXXXXXXXXXXXXX"
         api_args:
-          chat_id: -540226836
+          chat_id: 000000
           parse_mode: "markdown"
-          text: "Send notify to Telegram 測試傳送通知"
+          text: "Your precious application has been deployed: https://example.com"
           disable_web_page_preview: True
           disable_notification: True
