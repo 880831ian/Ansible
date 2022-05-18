@@ -267,21 +267,6 @@ Hello World on Docker.
 
 <br>
 
-* ansible 安裝時常見問題
-1. server1 | FAILED | rc=-1 >> to use the 'ssh' connection type with passwords or pkcs11_provider, you must install the sshpass program
-	
-Ans1. 會遇到這個問題是因為需要多安裝 sshpass，一般系統安裝 sshpass 很簡單，但在 macOS 上稍微麻煩，詳細可以參考[這篇文章](https://stackoverflow.com/questions/32255660/how-to-install-sshpass-on-mac)。
-
-2. ~paramiko/transport.py:236: CryptographyDeprecationWarning: Blowfish has been deprecated
-
-Ans2. 在我安裝過程中，發現上前幾天才出現這個 Bug 詳細情形可以參考 [GitHub issues](https://github.com/paramiko/paramiko/issues/2038)，目前解決辦法有降板或是先將錯誤訊息給註解掉，之後再等新的版本出來再更新，大家可以自行選擇，我這邊是直接把出現問題的 `transport.py` 內容註解掉，大概位於236行，可以看下方圖片。
-
-<br>
-
-![圖片](https://raw.githubusercontent.com/880831ian/Ansible/master/images/blowfish.png)
-
-<br>
-
 ## 第一個 Playbook
 
 在我們都安裝好後，要來說說我們剛剛有偷偷提到的 Playbooks 的動作 (Plays) 和任務 (Tasks)。在一份 Playbooks 裡面，可以有多個 Play、多個 Task 和多個 Module：
@@ -335,7 +320,7 @@ $ ansible-playbook helloworld.yaml
 
 <br>
 
-{{< image src="/images/Ansible/helloworld.png"  width="1000" caption="執行 Playbooks" src_s="/images/Ansible/helloworld.png" src_l="/images/Ansible/helloworld.png" >}}
+![圖片](https://raw.githubusercontent.com/880831ian/Ansible/master/images/helloworld.png)
 
 <br>
 
@@ -1222,6 +1207,21 @@ ok: [server1] => (item=2) => {
 <br>
 
 會使用 Loop 就可以減少我們在寫重複的程式碼，當然上面的只是簡單的範例，詳細請參考 [Loops - Ansible Documentation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#query-vs-lookup)。
+
+<br>
+
+##  ansible 安裝時常見問題
+1. server1 | FAILED | rc=-1 >> to use the 'ssh' connection type with passwords or pkcs11_provider, you must install the sshpass program
+	
+Ans1. 會遇到這個問題是因為需要多安裝 sshpass，一般系統安裝 sshpass 很簡單，但在 macOS 上稍微麻煩，詳細可以參考[這篇文章](https://stackoverflow.com/questions/32255660/how-to-install-sshpass-on-mac)。
+
+2. ~paramiko/transport.py:236: CryptographyDeprecationWarning: Blowfish has been deprecated
+
+Ans2. 在我安裝過程中，發現上前幾天才出現這個 Bug 詳細情形可以參考 [GitHub issues](https://github.com/paramiko/paramiko/issues/2038)，目前解決辦法有降板或是先將錯誤訊息給註解掉，之後再等新的版本出來再更新，大家可以自行選擇，我這邊是直接把出現問題的 `transport.py` 內容註解掉，大概位於236行，可以看下方圖片。
+
+<br>
+
+![圖片](https://raw.githubusercontent.com/880831ian/Ansible/master/images/blowfish.png)
 
 <br> 
 
